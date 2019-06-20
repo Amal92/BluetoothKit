@@ -4,21 +4,23 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.amp.bluetoothkit.BluetoothCallback
+import com.amp.bluetoothkit.BluetoothKit
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val MY_UUID = UUID.fromString("Bluetooth Device UUID")
-    private val macAddress = "Bluetooth Device MAC Address"
+    private val uuid = UUID.fromString("Your bluetooth device UUID")
+    private val macAddress = "Your bluetooth device MAC address"
 
-    private lateinit var bluekit: Bluekit
+    private lateinit var bluetoothKit: BluetoothKit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        bluekit = Bluekit(this)
-        bluekit.setCallback(object : BluetoothCallback {
+        bluetoothKit = BluetoothKit(this)
+        bluetoothKit.setCallback(object : BluetoothCallback {
             override fun Connected() {
                 Log.d("Amal", "connected")
 
@@ -58,16 +60,16 @@ class MainActivity : AppCompatActivity() {
         })
         open_btn.setOnClickListener {
             // Code here executes on main thread after user presses button
-            bluekit.write("message")
+            bluetoothKit.write("message")
         }
         connect_btn.setOnClickListener {
-            bluekit.connectToDevice(macAddress, MY_UUID)
+            bluetoothKit.connectToDevice(macAddress, uuid)
         }
     }
 
 
     override fun onDestroy() {
-        bluekit.stop()
+        bluetoothKit.stop()
         super.onDestroy()
     }
 }
