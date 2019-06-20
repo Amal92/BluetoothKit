@@ -1,4 +1,4 @@
-package com.amp.bluetoothkit;
+package com.amp.bluetoothkitSample;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;

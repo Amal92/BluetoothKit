@@ -1,4 +1,4 @@
-package com.amp.bluetoothkit
+package com.amp.bluetoothkitSample
 
 import android.os.Bundle
 import android.util.Log

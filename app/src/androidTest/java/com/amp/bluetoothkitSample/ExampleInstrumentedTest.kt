@@ -1,4 +1,4 @@
-package com.amp.bluetoothkit
+package com.amp.bluetoothkitSample
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.amp.bluetoothkit;
+package com.amp.bluetoothkitSample;
 
 public interface BluetoothCallback {
     void Connected();
