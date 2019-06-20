@@ -1,4 +1,4 @@
-package com.amp.bluetoothkitSample;
+package com.amp.bluetoothkit;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -13,7 +13,8 @@ import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
-public class Bluekit {
+public class BluetoothKit {
+
     private final String TAG = getClass().getName();
     private static final int REQUEST_ENABLE_BT = 6789;
     public static final int MESSAGE_READ = 0;
@@ -25,17 +26,16 @@ public class Bluekit {
     private ConnectedThread mConnectedThread;
     private BluetoothCallback bluetoothCallback;
 
-    public Bluekit(Activity context) {
+    public BluetoothKit(Activity context) {
         this.context = context;
     }
 
-
-    public Bluekit setCallback(BluetoothCallback bluetoothCallback) {
+    public BluetoothKit setCallback(BluetoothCallback bluetoothCallback) {
         this.bluetoothCallback = bluetoothCallback;
         return this;
     }
 
-    public Bluekit connectToDevice(String name, UUID uuid) {
+    public BluetoothKit connectToDevice(String name, UUID uuid) {
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (bluetoothAdapter != null) {
             if (!bluetoothAdapter.isEnabled()) {
